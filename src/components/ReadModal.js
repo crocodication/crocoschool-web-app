@@ -1,5 +1,7 @@
 import React from 'react'
 
+const ReactMarkdown = require('react-markdown/with-html')
+
 export default class extends React.Component {
     state = {
         article: ''
@@ -28,7 +30,42 @@ export default class extends React.Component {
                 <div
                     className = 'read-modal-content-container'
                 >
-                    {article}
+                    <div
+                        style = {{
+                            alignItems: 'center',
+                            display: 'flex',
+                            justifyContent: 'space-between'
+                        }}
+                    >
+                        <h3>
+                            {props.item.name}
+                        </h3>
+
+                        <a
+                            href = '/#'
+                            onClick = {props.onDismiss}
+                            className = 'read-modal-close-button'
+                        >
+                            X
+                        </a>
+                    </div>
+
+                    <div
+                        style = {{
+                            alignItems: 'flex-start',
+                            backgroundColor: 'white',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            flex: 1,
+                            marginTop: 20,
+                            padding: 20
+                        }}
+                    >
+                        <ReactMarkdown
+                            source = {article}
+                            skipHtml = {false}
+                        />
+                    </div>
                 </div>
             </div>
         )

@@ -113,28 +113,31 @@ a {
 /*-------------------------------------------------------------------------------*/
 
 .read-modal-main-container {
-	bottom: 0;
 	display: flex;
+	flex: 1;
+}
+
+.read-modal-background {
+	background-color: rgba(0,0,0,0.7);
+	bottom: 0;
 	left: 0;
 	position: fixed;
 	right: 0;
 	top: 0;
-}
-
-.read-modal-background {
-	background-color: rgba(0,0,0,0.8);
-	bottom: 0;
-	left: 0;
-	position: absolute;
-	right: 0;
-	top: 0;
+	z-index: 1;
 }
 
 .read-modal-content-container {
 	background-color: gainsboro;
 	display: flex;
 	flex: 1;
+	flex-direction: column;
 	margin: 40px;
 	padding: 20px;
-	z-index: 1;
+	z-index: 2;
+}
+
+.read-modal-close-button {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 20px;
 }
