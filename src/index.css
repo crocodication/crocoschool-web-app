@@ -88,6 +88,11 @@ a {
 	padding: 10px
 }
 
+.class-item-lesson-item {
+	text-align: left;
+	width: 100%;
+}
+
 /*-------------------------------------------------------------------------------*/
 
 .telegram-content-container {
@@ -103,4 +108,34 @@ a {
 
 .telegram-label {
 	margin-left: 10px;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.read-modal-main-container {
+	bottom: 0;
+	display: flex;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+}
+
+.read-modal-background {
+	background-color: rgba(0,0,0,0.8);
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.read-modal-content-container {
+	align-items: center;
+	background-color: gainsboro;
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	margin: 40px;
+	z-index: 1;
 }

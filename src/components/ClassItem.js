@@ -44,8 +44,10 @@ export default class extends React.Component {
 								item.lessons.map((lessonItem, lessonIndex) => {
 									return (
 										<a
+                                            className = 'class-item-lesson-item'
                                             href = '/#'
                                             key = {lessonItem.id}
+                                            onClick = {() => props.showReadModalWithID(lessonItem.id)}
 										>
 											<p
 												style = {{

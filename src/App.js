@@ -2,12 +2,14 @@ import React from 'react'
 
 import Emoji from './components/Emoji'
 import ClassItem from './components/ClassItem'
+import ReadModal from './components/ReadModal'
 
 import API from './refs/API'
 
 export default class extends React.Component {
 	state = {
-		data: []
+		data: [],
+		isShowReadModal: false
 	}
 
 	componentDidMount() {
@@ -17,7 +19,7 @@ export default class extends React.Component {
 	render() {
 		const { state } = this
 
-		const { data } = state
+		const { data, isShowReadModal } = state
 
 		return (
 			<div
@@ -48,6 +50,7 @@ export default class extends React.Component {
 								item = {item}
 								key = {item.class}
 								ref = {ref => this['classItem' + index.toString()] = ref}
+								showReadModalWithID = {this.showReadModalWithID}
 							/>
 						)
 					})
@@ -70,6 +73,15 @@ export default class extends React.Component {
 						Let's Discuss With Us On Telegram
 					</p>
 				</a>
+
+				{
+					isShowReadModal ?
+						<ReadModal
+							onDismiss = {() => this.setState({isShowReadModal: false})}
+						/>
+						:
+						null
+				}
 			</div>
 		)
 	}
@@ -89,5 +101,11 @@ export default class extends React.Component {
 		.then(res => res.json())
 		.then(resJson => this.setState({data: resJson.data}))
 		.catch(err => alert(err.toString()))
+	}
+
+	showReadModalWithID = async(id) => {
+		await this.setState({isShowReadModal: true})
+
+		setTimeout(() => alert('Lesson ID: ' + id.toString()), 250)
 	}
 }
