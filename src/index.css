@@ -39,22 +39,51 @@ p {
 }
 
 a {
+	color: black;
 	text-decoration-line: none;
 }
 
 /*-------------------------------------------------------------------------------*/
 
 .app-container {
-	align-items: center;
-	background-color: gainsboro;
+	background-color: lightgray;
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh;
+	min-height: calc(100vh - 40px);
 	padding: 20px;
 	text-align: center;
 }
 
 .app-slogan {
+	margin-bottom: 20px;
 	margin-top: 10px;
 	text-align: center;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+.class-item-container {
+	align-self: center;
+	max-width: 500px;
+	width: 100%;
+}
+
+.class-item-top-detail-container {
+	background-color: rgb(235,235,235);
+	border: 2px solid black;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+	padding: 10px
+}
+
+.class-item-lessons-container {
+	align-items: flex-start;
+	background-color: white;
+	border-bottom: 2px solid gray;
+	border-left: 2px solid gray;
+	border-right: 2px solid gray;
+	display: flex;
+	flex-direction: column;
+	padding: 10px
 }
