@@ -47,7 +47,7 @@ export default class extends React.Component {
                                             className = 'class-item-lesson-item'
                                             href = '/#'
                                             key = {lessonItem.id}
-                                            onClick = {() => props.showReadModalWithID(lessonItem.id)}
+                                            onClick = {() => props.showReadModalWithItem(lessonItem)}
 										>
 											<p
 												style = {{

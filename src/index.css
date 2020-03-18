@@ -131,11 +131,10 @@ a {
 }
 
 .read-modal-content-container {
-	align-items: center;
 	background-color: gainsboro;
 	display: flex;
 	flex: 1;
-	justify-content: center;
 	margin: 40px;
+	padding: 20px;
 	z-index: 1;
 }

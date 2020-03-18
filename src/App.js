@@ -9,7 +9,7 @@ import API from './refs/API'
 export default class extends React.Component {
 	state = {
 		data: [],
-		isShowReadModal: false
+		viewedLessonItem: null
 	}
 
 	componentDidMount() {
@@ -19,7 +19,7 @@ export default class extends React.Component {
 	render() {
 		const { state } = this
 
-		const { data, isShowReadModal } = state
+		const { data, viewedLessonItem } = state
 
 		return (
 			<div
@@ -50,7 +50,7 @@ export default class extends React.Component {
 								item = {item}
 								key = {item.class}
 								ref = {ref => this['classItem' + index.toString()] = ref}
-								showReadModalWithID = {this.showReadModalWithID}
+								showReadModalWithItem = {this.showReadModalWithItem}
 							/>
 						)
 					})
@@ -58,13 +58,21 @@ export default class extends React.Component {
 
 				<a
 					className = 'telegram-content-container'
-					href = 'https://t.me/crocodication'
-					target = '_blank'
+					href = '/#'
+					onClick = {() => {
+						let otherWindow = window.open()
+
+						otherWindow.opener = null
+
+						otherWindow.location = 'https://t.me/crocodication'
+					}}
 				>
 					<img
-						src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/240px-Telegram_logo.svg.png'
+						alt = 'telegram logo'
 						height = {30}
+						src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/240px-Telegram_logo.svg.png'
 						width = {30}
+						rel = "noopener noreferrer"
 					/>
 
 					<p
@@ -75,9 +83,10 @@ export default class extends React.Component {
 				</a>
 
 				{
-					isShowReadModal ?
+					viewedLessonItem !== null ?
 						<ReadModal
-							onDismiss = {() => this.setState({isShowReadModal: false})}
+							item = {viewedLessonItem}
+							onDismiss = {() => this.setState({viewedLessonItem: null})}
 						/>
 						:
 						null
@@ -103,9 +112,7 @@ export default class extends React.Component {
 		.catch(err => alert(err.toString()))
 	}
 
-	showReadModalWithID = async(id) => {
-		await this.setState({isShowReadModal: true})
-
-		setTimeout(() => alert('Lesson ID: ' + id.toString()), 250)
+	showReadModalWithItem = viewedLessonItem => {
+		this.setState({viewedLessonItem})
 	}
 }
