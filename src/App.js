@@ -52,6 +52,24 @@ export default class extends React.Component {
 						)
 					})
 				}
+
+				<a
+					className = 'telegram-content-container'
+					href = 'https://t.me/crocodication'
+					target = '_blank'
+				>
+					<img
+						src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/240px-Telegram_logo.svg.png'
+						height = {30}
+						width = {30}
+					/>
+
+					<p
+						className = 'telegram-label'
+					>
+						Let's Discuss With Us On Telegram
+					</p>
+				</a>
 			</div>
 		)
 	}

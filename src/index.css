@@ -87,3 +87,20 @@ a {
 	flex-direction: column;
 	padding: 10px
 }
+
+/*-------------------------------------------------------------------------------*/
+
+.telegram-content-container {
+	align-self: center;
+	align-items: center;
+	background-color: rgba(0,0,0,0.1);
+	border: 2px solid rgb(240,240,240);
+	display: flex;
+	justify-content: center;
+	margin-top: 40px;
+	padding: 10px
+}
+
+.telegram-label {
+	margin-left: 10px;
+}
