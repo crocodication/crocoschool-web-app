@@ -28,7 +28,9 @@ export default class extends React.Component {
 				{
 					viewedLessonItem === null ?
 						<>
-							<h1>
+							<h1
+								className = 'app-title'
+							>
 								CrocoSchool
 							</h1>
 

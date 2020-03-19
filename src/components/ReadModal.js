@@ -60,12 +60,8 @@ export default class extends React.Component {
                             marginTop: 20,
                             padding: 20
                         }}
-                    >
-                        <ReactMarkdown
-                            source = {article}
-                            skipHtml = {false}
-                        />
-                    </div>
+                        dangerouslySetInnerHTML = {{__html: article}}
+                    />
                 </div>
             </div>
         )
