@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 export default class extends React.Component {
 	state = {
 		isExpand: false
@@ -43,11 +45,10 @@ export default class extends React.Component {
 							{
 								item.lessons.map((lessonItem, lessonIndex) => {
 									return (
-										<a
-                                            className = 'class-item-lesson-item'
-                                            href = '/#'
+										<Link
+											className = 'class-item-lesson-item'
                                             key = {lessonItem.id}
-                                            onClick = {() => props.showReadModalWithItem(lessonItem)}
+											to = {'/' + lessonItem.id}
 										>
 											<p
 												style = {{
@@ -56,7 +57,7 @@ export default class extends React.Component {
 											>
 												{lessonItem.name}
 											</p>
-										</a>
+										</Link>
 									)
 								})
 							}
@@ -78,5 +79,5 @@ export default class extends React.Component {
         } else {
             this.setState({isExpand: !isExpand})
         }
-    }
+	}
 }

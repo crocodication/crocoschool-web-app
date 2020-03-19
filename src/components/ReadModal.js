@@ -1,69 +1,95 @@
 import React from 'react'
 
-const ReactMarkdown = require('react-markdown/with-html')
+import API from '../refs/API'
 
 export default class extends React.Component {
     state = {
-        article: ''
+        article: '',
+        lesson: null
     }
 
-    componentDidMount() {
-        this.loadArtcile()
-
+    async componentDidMount() {
         window.addEventListener('keydown', this.onKeyDown)
+
+        if(require('../modules/data').data.length === 0) {
+            await this.loadData()
+        }
+
+        const id = window.location.href.split('/')[window.location.href.split('/').length - 1]
+        
+        let pickedLesson = null
+        
+        for(let data of require('../modules/data').data) {
+            for(let lesson of data.lessons) {
+                if(lesson.id === id) {
+                    pickedLesson = lesson
+    
+                    break
+                }
+            }
+        }
+        if(pickedLesson === null) {
+            alert('Not Found')
+        } else {
+            await this.setState({lesson: pickedLesson})
+        
+            this.loadArtcile()
+        }
     }
 
     render() {
-        const { props, state } = this
+        const { state } = this
 
-        const { article } = state
+        const { article, lesson } = state
 
         return  (
-            <div
-                className = 'read-modal-main-container'
-            >
+            <>
                 <div
-                    className = 'read-modal-background'
-                    onClick = {props.onDismiss}
-                />
-
-                <div
-                    className = 'read-modal-content-container'
+                    className = 'read-modal-main-container'
                 >
-                    <div
-                        style = {{
-                            alignItems: 'center',
-                            display: 'flex',
-                            justifyContent: 'space-between'
-                        }}
+                    <a
+                        className = 'read-modal-background'
+                        href = '/#'
                     >
-                        <h3>
-                            {props.item.name}
-                        </h3>
-
-                        <a
-                            href = '/#'
-                            onClick = {props.onDismiss}
-                            className = 'read-modal-close-button'
-                        >
-                            X
-                        </a>
-                    </div>
+                    </a>
 
                     <div
-                        style = {{
-                            alignItems: 'flex-start',
-                            backgroundColor: 'white',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            flex: 1,
-                            marginTop: 20,
-                            padding: 20
-                        }}
-                        dangerouslySetInnerHTML = {{__html: article}}
-                    />
+                        className = 'read-modal-content-container'
+                    >
+                        <div
+                            style = {{
+                                alignItems: 'center',
+                                display: 'flex',
+                                justifyContent: 'space-between'
+                            }}
+                        >
+                            <h3>
+                                {lesson ? lesson.name : ''}
+                            </h3>
+
+                            <a
+                                href = '/#'
+                                className = 'read-modal-close-button'
+                            >
+                                X
+                            </a>
+                        </div>
+                        
+                        <div
+                            style = {{
+                                alignItems: 'flex-start',
+                                backgroundColor: 'white',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                flex: 1,
+                                marginTop: 20,
+                                padding: 20
+                            }}   
+                            dangerouslySetInnerHTML = {{__html: article}}
+                        />
+                    </div>
                 </div>
-            </div>
+            </>
         )
     }
 
@@ -73,25 +99,22 @@ export default class extends React.Component {
 
     onKeyDown = (event) => {
         if(event.keyCode === 27) {
-            setTimeout(this.props.onDismiss, 100)
+            setTimeout(window.open('/#'), 100)
         }
     }
 
     async loadArtcile() {
-        const { props } = this
-
-        const { item } = props
-
-        let loadIndex = await localStorage.getItem('loadIndex')
-
-        if(loadIndex === null) {
-            loadIndex = 0
-        }
-
-        await localStorage.setItem('loadIndex', Number(loadIndex) + 1)
-         
-        fetch(item.article.url + '?loadIndex=' + loadIndex.toString())
+        fetch(this.state.lesson.article.url + '?loadtime=' + (new Date()).getTime().toString())
         .then(res => res.text())
-        .then(resText => this.setState({article: resText}))
+        .then(resText => {
+            this.setState({article: resText})
+        })
+    }
+
+    async loadData() {
+        await API.Content()
+        .then(res => res.json())
+        .then(resJson => require('../modules/data').data = resJson.data)
+        .catch(err => alert(err.toString()))
     }
 }
