@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-router-dom'
+
 import API from '../refs/API'
 
 export default class extends React.Component {
@@ -47,11 +49,13 @@ export default class extends React.Component {
                 <div
                     className = 'read-modal-main-container'
                 >
-                    <a
-                        className = 'read-modal-background'
-                        href = '/#'
+                    <Link
+                        to = '/#'
                     >
-                    </a>
+                        <div
+                            className = 'read-modal-background'
+                        />
+                    </Link>
 
                     <div
                         className = 'read-modal-content-container'
@@ -66,13 +70,6 @@ export default class extends React.Component {
                             <h3>
                                 {lesson ? lesson.name : ''}
                             </h3>
-
-                            <a
-                                href = '/#'
-                                className = 'read-modal-close-button'
-                            >
-                                X
-                            </a>
                         </div>
                         
                         <div
@@ -99,7 +96,7 @@ export default class extends React.Component {
 
     onKeyDown = (event) => {
         if(event.keyCode === 27) {
-            setTimeout(window.open('/#'), 100)
+            this.props.history.goBack()
         }
     }
 
