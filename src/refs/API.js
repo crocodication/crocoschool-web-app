@@ -1,7 +1,7 @@
-const BASE_URL = 'https://crocoschool.000webhostapp.com'
+export const BASE_URL = 'https://crocoschoolstorage.000webhostapp.com'
 
 export default {
-    Content: () => fetching(BASE_URL + '/crocoschool-web-app-content.json')
+    Content: () => fetching(BASE_URL + '/content.json')
 }
 
 function fetching(url) {

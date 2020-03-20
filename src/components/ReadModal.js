@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom'
+import { BASE_URL } from '../refs/API'
 
 export default class extends React.Component {
     state = {
@@ -53,7 +54,7 @@ export default class extends React.Component {
     async loadArtcile() {
         const id = window.location.href.split('/')[window.location.href.split('/').length - 1]
         
-        fetch('https://crocoschool.000webhostapp.com/resources/html/' + id + '.html?loadtime=' + (new Date()).getTime().toString())
+        fetch(BASE_URL + '/resources/html/' + id + '.html?loadtime=' + (new Date()).getTime().toString())
         .then(res => res.text())
         .then(resText => {
             this.setState({article: resText})

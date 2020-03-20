@@ -117,7 +117,7 @@ class Home extends React.Component {
 	async expandClassItemAtIndex(index) {
 		let selectedClassIndex = await localStorage.getItem('selectedClassIndex')
 
-		if(selectedClassIndex === null) {
+		if(selectedClassIndex !== index.toString()) {
 			selectedClassIndex = index
 
 			await localStorage.setItem('selectedClassIndex', index)
