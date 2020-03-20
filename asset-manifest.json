@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/crocoschool/static/css/main.75343831.chunk.css",
-    "main.js": "/crocoschool/static/js/main.b6bf46a1.chunk.js",
-    "main.js.map": "/crocoschool/static/js/main.b6bf46a1.chunk.js.map",
-    "runtime-main.js": "/crocoschool/static/js/runtime-main.5291053c.js",
-    "runtime-main.js.map": "/crocoschool/static/js/runtime-main.5291053c.js.map",
-    "static/js/2.1c364b21.chunk.js": "/crocoschool/static/js/2.1c364b21.chunk.js",
-    "static/js/2.1c364b21.chunk.js.map": "/crocoschool/static/js/2.1c364b21.chunk.js.map",
-    "index.html": "/crocoschool/index.html",
-    "precache-manifest.22164f05ec21b61ff0edc604190452a8.js": "/crocoschool/precache-manifest.22164f05ec21b61ff0edc604190452a8.js",
-    "service-worker.js": "/crocoschool/service-worker.js",
-    "static/css/main.75343831.chunk.css.map": "/crocoschool/static/css/main.75343831.chunk.css.map",
-    "static/js/2.1c364b21.chunk.js.LICENSE.txt": "/crocoschool/static/js/2.1c364b21.chunk.js.LICENSE.txt"
+    "main.css": "/crocoschool-web-app/static/css/main.75343831.chunk.css",
+    "main.js": "/crocoschool-web-app/static/js/main.1d32ce34.chunk.js",
+    "main.js.map": "/crocoschool-web-app/static/js/main.1d32ce34.chunk.js.map",
+    "runtime-main.js": "/crocoschool-web-app/static/js/runtime-main.091d24b8.js",
+    "runtime-main.js.map": "/crocoschool-web-app/static/js/runtime-main.091d24b8.js.map",
+    "static/js/2.1c364b21.chunk.js": "/crocoschool-web-app/static/js/2.1c364b21.chunk.js",
+    "static/js/2.1c364b21.chunk.js.map": "/crocoschool-web-app/static/js/2.1c364b21.chunk.js.map",
+    "index.html": "/crocoschool-web-app/index.html",
+    "precache-manifest.76e9d9dc1b6628aac92ab07248204510.js": "/crocoschool-web-app/precache-manifest.76e9d9dc1b6628aac92ab07248204510.js",
+    "service-worker.js": "/crocoschool-web-app/service-worker.js",
+    "static/css/main.75343831.chunk.css.map": "/crocoschool-web-app/static/css/main.75343831.chunk.css.map",
+    "static/js/2.1c364b21.chunk.js.LICENSE.txt": "/crocoschool-web-app/static/js/2.1c364b21.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.5291053c.js",
+    "static/js/runtime-main.091d24b8.js",
     "static/js/2.1c364b21.chunk.js",
     "static/css/main.75343831.chunk.css",
-    "static/js/main.b6bf46a1.chunk.js"
+    "static/js/main.1d32ce34.chunk.js"
   ]
 }
