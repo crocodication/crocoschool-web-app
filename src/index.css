@@ -145,3 +145,13 @@ xmp {
 	padding: 20px;
 	z-index: 2;
 }
+
+.read-modal-content {
+	align-items: flex-start;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	margin-bottom: -20px;
+	padding: 20px
+}
