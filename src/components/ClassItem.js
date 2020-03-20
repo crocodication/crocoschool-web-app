@@ -8,10 +8,9 @@ export default class extends React.Component {
 	}
 
 	render() {
-		const { props, state } = this
+		const { props } = this
 
-		const { item } = props
-		const { isExpand } = state
+		const { isExpand, item } = props
 
 		return (
 			<div
@@ -68,16 +67,4 @@ export default class extends React.Component {
 			</div>
 		)
     }
-    
-    setExpand(index) {
-        const { props, state } = this
-
-        const { isExpand } = state
-
-        if(props.index !== index) {
-            this.setState({isExpand: false})
-        } else {
-            this.setState({isExpand: !isExpand})
-        }
-	}
 }

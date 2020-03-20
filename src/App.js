@@ -37,7 +37,8 @@ export default class extends React.Component {
 
 class Home extends React.Component {
 	state = {
-		data: require('./modules/data').data
+		data: require('./modules/data').data,
+		selectedClassIndex: null
 	}
 
 	componentDidMount() {
@@ -47,7 +48,7 @@ class Home extends React.Component {
 	render() {
 		const { state } = this
 
-		const { data } = state
+		const { data, selectedClassIndex } = state
 
 		return (
 			<>
@@ -76,6 +77,7 @@ class Home extends React.Component {
 								expandClassItemAtIndex = {() => this.expandClassItemAtIndex(index)}
 								index = {index}
 								item = {item}
+								isExpand = {index.toString() === (selectedClassIndex !== null ? selectedClassIndex.toString() : "")}
 								key = {item.class}
 								ref = {ref => this['classItem' + index.toString()] = ref}
 							/>
@@ -112,24 +114,42 @@ class Home extends React.Component {
 		)
 	}
 
-	expandClassItemAtIndex(index) {
-		const { state } = this
+	async expandClassItemAtIndex(index) {
+		let selectedClassIndex = await localStorage.getItem('selectedClassIndex')
 
-		const { data } = state
+		if(selectedClassIndex === null) {
+			selectedClassIndex = index
 
-		for(let i = 0; i < data.length; i++) {
-			this['classItem' + i.toString()].setExpand(index)
+			await localStorage.setItem('selectedClassIndex', index)
+		} else {
+			selectedClassIndex = null
+
+			await localStorage.removeItem('selectedClassIndex')
 		}
+		
+		this.setState({selectedClassIndex})
 	}
 
-	loadData() {
+	async loadData() {
+		let recentData = await localStorage.getItem('data')
+
+		const selectedClassIndex = await localStorage.getItem('selectedClassIndex')
+
+		if(recentData !== null) {
+			await this.setState({data: JSON.parse(recentData)})
+		}
+
+		await this.setState({selectedClassIndex})
+
 		if(this.state.data.length === 0) {
 			API.Content()
 			.then(res => res.json())
-			.then(resJson => {
-				this.setState({data: resJson.data})
+			.then(async(resJson) => {
+				const data = resJson.data
 
-				require('./modules/data').data = resJson.data
+				await localStorage.setItem('data', JSON.stringify(data))
+
+				this.setState({data})
 			})
 			.catch(err => alert(err.toString()))
 		}
