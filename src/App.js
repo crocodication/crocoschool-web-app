@@ -14,17 +14,17 @@ export default class extends React.Component {
 				<Switch>
 					<Route
 						exact
-						path = '/'
+						path = '/crocoschool-web-app/'
 						component = {Home}
 					/>
 
 					<Route
-						path = {`/:id(\\d+)`}
+						path = {`/crocoschool-web-app/:id(\\d+)`}
 						component = {ReadModal}
 					/>
 
 					<Redirect
-						to = "/#"
+						to = "/crocoschool-web-app/#"
 					/>
 				</Switch>
 			</div>

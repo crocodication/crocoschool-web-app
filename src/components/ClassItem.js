@@ -17,7 +17,7 @@ export default class extends React.Component {
                 className = 'class-item-container'
 			>
 				<a
-					href = '/#'
+					href = '/crocoschool-web-app/#'
 					onClick = {() => props.expandClassItemAtIndex()}
 				>
 					<div
@@ -47,7 +47,7 @@ export default class extends React.Component {
 										<Link
 											className = 'class-item-lesson-item'
                                             key = {lessonItem.id}
-											to = {'/' + lessonItem.id}
+											to = {'/crocoschool-web-app/' + lessonItem.id}
 										>
 											<p
 												style = {{

@@ -25,7 +25,7 @@ export default class extends React.Component {
                     className = 'read-modal-main-container'
                 >
                     <Link
-                        to = '/#'
+                        to = '/crocoschool-web-app/#'
                     >
                         <div
                             className = 'read-modal-background'
@@ -42,7 +42,7 @@ export default class extends React.Component {
 
                     <a
                         className = 'telegram-content-container'
-                        href = '/#'
+                        href = '/crocoschool-web-app/#'
                         onClick = {() => {
                             let otherWindow = window.open()
 

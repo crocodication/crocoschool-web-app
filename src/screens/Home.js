@@ -56,7 +56,7 @@ export default class extends React.Component {
 
 				<a
 					className = 'telegram-content-container'
-					href = '/#'
+					href = '/crocoschool-web-app/#'
 					onClick = {() => {
 						let otherWindow = window.open()
 
