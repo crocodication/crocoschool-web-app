@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/crocoschool-web-app/precache-manifest.76e9d9dc1b6628aac92ab07248204510.js"
+  "/crocoschool-web-app/precache-manifest.d8e5bdd3f774cef7b746dd39f2ffafc2.js"
 );
 
 self.addEventListener('message', (event) => {
