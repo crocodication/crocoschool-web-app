@@ -37,7 +37,7 @@ export default class extends React.Component {
 
 class Home extends React.Component {
 	state = {
-		data: require('./modules/data').data,
+		data: [],
 		selectedClassIndex: null
 	}
 
