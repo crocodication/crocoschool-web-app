@@ -1,0 +1,246 @@
+<div>
+    <h2>
+        View Component
+    </h2>
+    
+    <br>
+
+    <p>
+        Untuk bisa mengikuti implementasi bisa buka <a href="https://snack.expo.io/" target="_blank">Snack Expo</a> atau lewat CLI
+    </p>
+    
+    <br>
+
+    <h2>
+        Yang Akan Dipelajari
+    </h2>
+    
+    <br>
+
+    <p>
+        Bermain dengan komponen View React-Native
+    </p>
+    
+    <br>
+
+    <h2>
+        Pembelajaran
+    </h2>
+    
+    <br>
+
+    <p>
+        View adalah komponen paling dasar di React-Native sederhananya digunakan untuk merender bidang persegi kosong.
+    </p>
+    
+    <br>
+
+    <h4>
+        Penggunaan
+    </h4>
+    
+    <br>
+
+    <p>
+        Import dulu `View dari module react-native dengan cara
+    </p>
+
+    <div style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; width: 225px;">
+		<xmp>
+import React from 'react'
+import { View } from 'react-native'
+		</xmp>
+	</div>
+
+    <p>
+        dan bisa digunakan di fungsi render seperti berikut, ada bukaan tag
+    </p>
+
+    <div style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; width: 60px;">
+		<xmp>
+<View>
+		</xmp>
+    </div>
+
+    <p>
+        dan tutupan
+    </p>
+
+    <div style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; width: 60px;">
+		<xmp>
+</View>
+		</xmp>
+    </div>
+
+    <p>
+        seperti ini
+    </p>
+
+    <div style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; width: 100px;">
+		<xmp>
+render() {
+    return (
+        <View>
+        </View>
+    )
+}
+		</xmp>
+    </div>
+    
+    <br>
+
+    <h4>
+        Styling
+    </h4>
+    
+    <br>
+
+    <p>
+        View dapat diatur stylenya seperti berikut contoh masukkan didalam return dari render seperti sebelumnya...
+    </p>
+
+    <div style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; width: 275px;">
+		<xmp>
+<View
+    style = {{
+        backgroundColor: 'rgb(230,230,230)',
+        flex: 1
+    }}
+>
+</View>
+		</xmp>
+    </div>
+
+    <div style="display: flex; justify-content: center;">
+        <img width="280" height="460" src="https://crocoschoolstorage.000webhostapp.com/resources/images/view-style-0.png">
+    </div>
+    
+    <br>
+    <br>
+
+    <h4>
+        Nesting
+    </h4>
+    
+    <br>
+
+    <p>
+        View juga bisa dinesting, yang artinya menggambar View di dalam View misal...
+    </p>
+
+    <div style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; width: 275px;">
+		<xmp>
+<View
+    style = {{
+        backgroundColor: 'rgb(230,230,230)',
+        flex: 1
+    }}
+>
+    <View
+        style = {{
+            backgroundColor: 'deepskyblue',
+            height: 60
+        }}
+    >
+    </View>
+  
+    <View
+        style = {{
+            backgroundColor: 'pink',
+            height: 150
+        }}
+    >
+    </View>
+</View>
+		</xmp>
+    </div>
+    
+    <br>
+
+    <p>
+        Lihat <a href="https://snack.expo.io/@renalpraba/nested-view" target="_blank">working example</a>
+    </p>
+    
+    <br>
+    
+    <div style="display: flex; justify-content: center;">
+        <img width="280" height="460" src="https://crocoschoolstorage.000webhostapp.com/resources/images/view-style-1.png">
+    </div>
+    
+    <br>
+    <br>
+
+    <h4>
+        Row-Direction
+    </h4>
+    
+    <br>
+
+    <p>
+        View juga bisa merender secara horizontal / kesamping contohnya dengan atribut flexDirection: 'row' di View parent / View terluar 
+    </p>
+
+    <div style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; width: 275px;">
+		<xmp>
+<View
+    style = {{
+        backgroundColor: 'rgb(230,230,230)',
+        flex: 1,
+        flexDirection: 'row'
+    }}
+>
+    <View
+        style = {{
+            backgroundColor: 'deepskyblue',
+            height: 60,
+            width: 150
+        }}
+    >
+    </View>
+  
+    <View
+        style = {{
+            backgroundColor: 'pink',
+            height: 60,
+            width: 60
+        }}
+    >
+    </View>
+</View>
+		</xmp>
+    </div>
+    
+    <br>
+
+    <p>
+        Lihat <a href="https://snack.expo.io/@renalpraba/df09fa" target="_blank">working example</a>
+    </p>
+    
+    <br>
+
+    <div style="display: flex; justify-content: center;">
+        <img width="280" height="460" src="https://crocoschoolstorage.000webhostapp.com/resources/images/view-style-2.png">
+    </div>
+    
+    <br>
+    <br>
+
+    <h2>
+        Akhir Kata
+    </h2>
+    
+    <br>
+
+    <p>
+        Semoga bermanfaat menambah insight pengetahuan baru, tentunya akan disambung jika ada artikel lain yang sudah dibuat dan akan dilink disini, sebelumnya terima kasih!
+    </p>
+    
+    <br>
+    <br>
+
+    <div style="display:flex; justify-content: flex-end;">
+        <a href="/#">
+            Kembali ke halaman utama
+        </a>
+    </div>
+</div>

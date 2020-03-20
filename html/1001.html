@@ -1,0 +1,333 @@
+<div>
+	<h2>
+		Membuat Single Screen di React-Native
+	</h2>
+	
+	<br>
+
+	<p>
+		Untuk bisa mengikuti implementasi bisa buka <a href="https://snack.expo.io/" target="_blank">Snack Expo</a> atau lewat CLI
+	</p>
+	
+	<br>
+
+	<h2>
+		Yang Akan Dipelajari
+	</h2>
+	
+	<br>
+
+	<p>
+		Membuat Single Screen di React-Native
+	</p>
+	
+	<br>
+
+	<h2>
+		Struktur Layar
+	</h2>
+	
+	<br>
+
+	<p>
+		Di React-Native untuk membuat satu layar, cukup buka "App.js" hapus semua dan ketik struktur kodenya seperti berikut
+	</p>
+
+	<div style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; width: 280px;">
+		<xmp>
+import React from 'react'
+
+import { View } from 'react-native'
+
+export default class extends React.Component {
+    render() {
+        return (	
+            <View
+                style = {{
+                    backgroundColor: "cyan",
+                    flex: 1
+                }}
+            >
+            </View>
+        )
+    }
+}
+		</xmp>
+	</div>
+
+	<h2>
+		Penjelasan Struktur Layar
+	</h2>
+	
+	<br>
+
+	<p>
+		Dalam pembuatan layar butuh deklarasi class, dari contoh di atas yaitu
+    </p>
+    
+    <div style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; width: 275px;">
+		<xmp>
+export default class extends React.Component {
+}
+		</xmp>
+    </div>
+    
+    <br>
+    
+    <div style="display: flex;">
+        <code style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; min-width: 50px; max-height: 20px; margin-right: 10px;">
+            export
+        </code>
+    
+        <p style="margin-top: 0px;">
+            diperlukan karena compiler React-Native perlu import dari apa yang kita export
+        </p>
+    </div>
+    
+    <br>
+
+    <div style="display: flex;">
+        <code style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; min-width: 60px; max-height: 20px; margin-right: 10px;">
+            default
+        </code>
+    
+        <p style="margin-top: 0px;">
+            diperlukan untuk mengetahui class mana yang secara default diimport React-Native
+        </p>
+    </div>
+    
+    <br>
+
+    <div style="display: flex;">
+        <code style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; min-width: 180px; max-height: 20px; margin-right: 10px;">
+            extends React.Component
+        </code>
+    
+        <p style="margin-top: 0px;">
+            yang berarti class menggunakan komponen React yang tadi sudah diambil dari import React from 'React
+        </p>
+    </div>
+    
+    <br>
+
+    <p>
+        Dan perlu diingat jika ada bukaan { pasti diikuti tutupan }
+    </p>
+    
+    <br>
+
+    <p>
+        Class sudah dibuat, lalu untuk merender memakai fungsi render() di dalam class seperti contoh dari di atas yaitu
+    </p>
+    
+    <div style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; width: 250px;">
+		<xmp>
+render() {
+    return (
+        <View
+            style = {{
+                backgroundColor: "cyan",
+                flex: 1
+            }}
+        >
+        </View>
+    )
+}
+		</xmp>
+    </div>
+
+    <div style="display: flex;">
+        <code style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; min-width: 95px; max-height: 20px; margin-right: 10px;">
+            render() { }
+        </code>
+    
+        <p style="margin-top: 0px;">
+            merupakan fungsi rendernya, diingat lagi yang mana bukaan ( juga diikuti tutupan ), kemudian
+        </p>
+    </div>
+    
+    <br>
+
+    <div style="display: flex;">
+        <code style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; min-width: 80px; max-height: 20px; margin-right: 10px;">
+            return ( )
+        </code>
+    
+        <p style="margin-top: 0px;">
+            untuk didalamnya kita dapat mendefinisikan apa yang diteruskan untuk dirender, lalu
+        </p>
+    </div>
+
+    <div style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; width: 200px;">
+		<xmp>
+<View
+    style = {{
+        backgroundColor: "cyan",
+        flex: 1
+    }}
+>
+</View>
+		</xmp>
+    </div>
+
+    <p>
+        ini contoh komponen view yang dirender, deklarasinya ada bukaan tag
+    </p>
+
+    <div style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; width: 60px;">
+		<xmp>
+<View>
+		</xmp>
+    </div>
+
+    <p>
+        dan diikuti tutupan tag
+    </p>
+
+    <div style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; width: 60px;">
+		<xmp>
+</View>
+		</xmp>
+    </div>
+
+    <p>
+        di bukaan dapat diisi properti yang tersedia, cara penulisan properti yaitu nama properti nya diikuti "=" lalu isi value nya di dalam buka tutup kurung kurawal contoh:
+    </p>
+
+    <br>
+
+    <p>
+        Properti integer
+    </p>
+
+    <div style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; width: 125px;">
+		<xmp>
+propertiInteger = {5}
+		</xmp>
+    </div>
+
+    <p>
+        Properti string
+    </p>
+
+    <div style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; width: 150px;">
+		<xmp>
+propertiString = {"Hello"}
+		</xmp>
+    </div>
+
+    <p>
+        Properti objek JSON
+    </p>
+
+    <div style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; width: 150px;">
+		<xmp>
+propertiJSON = {{
+    atribut: "Isi atribut"
+}}
+		</xmp>
+    </div>
+
+    <p>
+        ini sama yang tadi kita pakai diatas untuk membuat properti style di view
+    </p>
+
+    <div style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; width: 175px;">
+		<xmp>
+style = {{
+    backgroundColor: "cyan",
+    flex: 1
+}}
+		</xmp>
+    </div>
+
+    <div style="display: flex;">
+        <code style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; min-width: 60px; max-height: 20px; margin-right: 10px;">
+            backgroundColor: "cyan",
+        </code>
+    
+        <p style="margin-top: 0px;">
+            membuat warna background view menjadi warna cyan
+        </p>
+    </div>
+    
+    <br>
+
+    <div style="display: flex;">
+        <code style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; min-width: 60px; max-height: 20px; margin-right: 10px;">
+            flex: 1
+        </code>
+    
+        <p style="margin-top: 0px;">
+            menspesifikan ukuran view flex berisi rasio 0 sampai 1, 0 kosong, 0.5 merupakan setengah ruang layar yang tersedia, 1 merupakan keseluruhan layar yang tersedia
+        </p>
+    </div>
+    
+    <br>
+
+    <p>
+        itulah secara lengkap sederhananya pembuatan class Screen di React-Native yang mana kode di atas tadi
+    </p>
+
+    <div style="background-color: rgb(230,230,230); padding-left: 10px; padding-right: 10px; width: 275px;">
+		<xmp>
+import React from 'react'
+
+import { View } from 'react-native'
+
+export default class extends React.Component {
+    render() {
+        return (
+            <View
+                style = {{
+                    backgroundColor: "cyan",
+                    flex: 1
+                }}
+            >
+            </View>
+        )
+    }
+}
+		</xmp>
+    </div>
+
+    <p>
+        digunakan untuk membuat single screen yang merender view penuh satu layar dengan warna background cyan
+    </p>
+    
+    <br>
+    
+    <div style="display: flex; justify-content: center">
+		<img width="280" height="460" src="https://crocoschoolstorage.000webhostapp.com/resources/images/membuat-single-screen-di-react-native.png">
+	</div>
+
+    <br>
+    
+    <br>
+
+    <h2>
+        Akhir Kata
+    </h2>
+    
+    <br>
+
+    <p>
+        Semoga bermanfaat menambah insight pengetahuan baru, saya sangat senang akan feedback jika ada yang salah dalam penjelasan bisa comment di bawah agar bisa diperbaiki, tentunya akan disambung jika ada artikel lain yang sudah dibuat dan akan dilink disini, sebelumnya terima kasih!
+    </p>
+    
+    <br>
+
+    <h2>
+        Lanjutan
+    </h2>
+    
+    <br>
+    
+    <div style="align-items: center; display: flex; justify-content: space-between;">
+		<p style="text-align:left">
+			Selanjutnya: <a href="/1002">View Component</a>
+		</p>
+
+		<a style="text-align: right;" href="/#">Kembali ke halaman utama</a>
+	</div>
+</div>
