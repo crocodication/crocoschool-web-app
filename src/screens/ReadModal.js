@@ -80,7 +80,7 @@ export default class extends React.Component {
             await this.setState({article: recentArticlePage})
         }
         
-        fetch(BASE_URL + '/resources/html/' + id + '.html?loadtime=' + (new Date()).getTime().toString())
+        fetch(BASE_URL + '/html/' + id + '.html?loadtime=' + (new Date()).getTime().toString())
         .then(res => res.text())
         .then(async(resText) => {
             await localStorage.setItem(id, resText)
